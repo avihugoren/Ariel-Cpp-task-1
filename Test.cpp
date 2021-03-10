@@ -18,21 +18,8 @@ using namespace ariel;
 #include <string>
 #include <algorithm>
 using namespace std;
-const int good_digit = 4;
-const int bad_digit = rand()*5 +5;
 
-/**
- * Returns the input string without the whitespace characters: space, newline and tab.
- * Requires std=c++2a.
- */
-string nospaces(string input) {
-	std::erase(input, ' ');
-	std::erase(input, '\t');
-	std::erase(input, '\n');
-	std::erase(input, '\r');
-	return input;
-}
-int NumLength(int num)
+int NumLength(int num)//return the digit length of num
 {
     int counter = 0 ;
      while(num != 0)
@@ -48,14 +35,14 @@ int GiveMeNumLen(int length,bool good)//if good = true return good number with l
     int digit = 0;
     for (int i = 0 ; i < length; i++)
     {
-        digit = rand() % good_digit + 1;
+        digit = rand() % 4 + 1;//good digit is 1-4 
         sum += digit * pow(10,i);
     }
     if (good)
         return sum;
     return sum * -1;
 }
-int GiveMeBadNum(int digit_place)
+int GiveMeBadNum(int digit_place)//give number with length of 8 and one digit is not between 1-4 this digit place is 7 - digit_place
 {
     int my_rand = 0 ; 
     int num = 0 ;
